@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag haproxy:latest
     - name: Container registry login
       run: echo "${{ secrets.GL_TOKEN }}"| docker login -u "${{ secrets.GL_TOKEN_NAME }}" --password-stdin registry.gitlab.com
     - name: Image push
