@@ -18,6 +18,8 @@ jobs:
       run: docker build . --file Dockerfile --tag haproxy:latest
     - name: Container registry login
       run: echo "${{ secrets.GL_TOKEN }}"| docker login -u "${{ secrets.GL_TOKEN_NAME }}" --password-stdin registry.gitlab.com
+    - name: Image tag
+      run: docker tag haproxy:latest registry.gitlab.com/radeld/toolbox/haproxy:latest
     - name: Image push
       run: docker push registry.gitlab.com/radeld/toolbox/haproxy:latest
 
