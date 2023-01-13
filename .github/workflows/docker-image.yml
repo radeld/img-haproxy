@@ -19,5 +19,5 @@ jobs:
     - name: Container registry login
       run: echo "${{ secrets.GL_TOKEN }}"| docker login -u "${{ secrets.GL_TOKEN_NAME }}" --password-stdin registry.gitlab.com
     - name: Image push
-      run: docker push https://registry.gitlab.com/radeld/toolbox/haproxy:latest
+      run: docker push registry.gitlab.com/radeld/toolbox
 
